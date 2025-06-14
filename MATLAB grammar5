@@ -1,0 +1,116 @@
+## **Task 6**
+
+`plot` 함수는 속성 이름과 속성값으로 구성된 입력값을 추가로 받을 수 있습니다.
+
+`plot(y,"LineWidth",5)`위 명령은 굵은 선을 사용하여 플로팅합니다. 사용 가능한 속성에 대한 자세한 내용은 [선 사양](https://www.mathworks.com/help/matlab/ref/matlab.graphics.chart.primitive.line-properties.html) 도움말 문서에서 확인할 수 있습니다.
+
+**작업**
+
+선 너비를 `3`으로 지정하여 `v1`을 플로팅하세요.
+
+plot(v1, "LineWidth",3)
+
+## **Task 7**
+
+`plot` 함수에서는 플로팅하려는 인수와 선 사양을 지정하고 그 뒤에 속성 이름과 속성값을 추가로 지정합니다.
+
+`plot(x,y,"ro-","LineWidth",5)`
+
+**작업**
+
+`sample`(*x축*)에 대해 `v1`(*y축*)을 플로팅하세요. 선 너비를 `4`로 지정하고 빨간색(`r`) 원 마커(`o`)를 사용하세요.
+
+plot(sample, v1,"ro","LineWidth",4)
+
+## **Further Practice**
+
+주석달기
+
+## **Task 1**
+
+`title` 같은 플롯 주석 함수를 사용하여 플롯에 레이블을 추가할 수 있습니다. 이러한 함수에 대한 입력값은 문자열입니다. MATLAB에서 문자열은 큰따옴표(`"`)로 묶습니다.
+
+`title("Plot Title")`
+
+**작업**
+
+플롯에 `"Sample Mass"`라는 제목을 추가하세요.
+
+title("Sample Mass")
+
+## **Task 2**
+
+**작업**
+
+`ylabel` 함수를 사용하여 `"Mass (g)"`라는 레이블을 추가하세요.
+
+ylabel("Mass (g)") → 말그대로 y축에 레이블 추가
+
+## **Task 3**
+
+`legend` 함수를 사용하여 플롯에 범례를 추가할 수 있습니다.
+
+`legend("a","b","c")`
+
+**작업**
+
+레이블 `"Exp A"` 및 `"Exp B"`를 차례로 지정하여 범례를 만드세요.
+
+legend("Exp A","Exp B")
+
+# Electricity Usage
+
+Instructions are in the task pane to the left. Complete and submit each task one at a time.
+
+## **Task 1**
+
+load electricity
+
+usage
+
+## **Task 2**
+
+usage(2,3) = 2.74
+
+## **Task 3**
+
+res = usage(:,1)
+
+## **Task 4**
+
+comm = usage(:,2)
+
+ind = usage(:,3)
+
+## **Task 5**
+
+yrs = (1991:2013)'
+
+## **Task 6**
+
+**작업**
+
+세 열에 대한 플롯을 만드세요. `yrs`를 x 데이터로 사용하고 다음 플롯 사양을 순서대로 사용하세요.
+1. `res`: 파란색(`b`) 파선(`--`)
+2. `comm`: 검은색(`k`) 점선(`:`)
+3. `ind`: 자홍색(`m`) 일점 쇄선(`-.`)([`LineSpec`](https://www.mathworks.com/help/matlab/ref/plot.html#btzitot_sep_mw_3a76f056-2882-44d7-8e73-c695c0c54ca8))
+
+1. 1. `res`: 파란색(`b`) 파선(`-`)
+2. 2. `comm`: 검은색(`k`) 점선(`:`)
+3. 3. `ind`: 자홍색(`m`) 일점 쇄선(`.`)
+
+plot(yrs,res,"b--")
+
+hold on
+
+plot(yrs,comm,"k:")
+
+plot(yrs,ind,"m-.")
+
+hold off
+
+## **Task 7**
+
+title("July Electricity Usage") 
+
+legend("res","comm","ind")
