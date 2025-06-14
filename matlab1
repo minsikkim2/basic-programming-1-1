@@ -1,0 +1,20 @@
+n_values = 10:1000
+pi_estimates = zeros(size(n_values))
+
+for i = 1:length(n_values)
+    n = n_values(i)
+    x = 2 * rand(1, n) - 1  
+    y = 2 * rand(1, n) - 1; 
+    count = sum(x.^2 + y.^2 <= 1)  
+    pi_estimates(i) = 4 * count / n
+end
+
+figure
+plot(n_values, pi_estimates, 'LineWidth', 1)
+hold on
+plot(n_values, pi*ones(size(n_values)), 'r--', 'LineWidth', 2)
+xlabel('난수 발생 횟수 (n)')
+ylabel('추정된 원주율 값')
+title('난수 발생 횟수에 따른 원주율 추정값 변화')
+legend('추정된 원주율', '실제 원주율')
+grid on
