@@ -1,0 +1,19 @@
+Plotting Vectors
+
+Instructions are in the task pane to the left. Complete and submit each task one at a time.
+
+This code sets up the interaction.
+
+load datafile
+
+sample = data(:,1);
+
+density = data(:,2);
+
+v1 = data(:,3);
+
+v2 = data(:,4);
+
+mass1 = density.*v1;
+
+mass2 = density.*v2;
