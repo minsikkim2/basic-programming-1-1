@@ -1,0 +1,4 @@
+theta = linspace(0, 2*pi, 1000) % 0에서 2파이까지 1000개 점
+r = cos(2*theta)                % r 계산
+polarplot(theta, r, 'LineWidth', 2) % 두꺼운 선으로 시각화
+title('r = cos(2\theta) 극좌표 플롯')
