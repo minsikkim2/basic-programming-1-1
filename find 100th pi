@@ -1,0 +1,5 @@
+digits(101)        % 소수점 아래 100자리까지 확보 (소수점 포함 101자리)
+pi_str = char(vpa(pi, 101))  % 문자열로 변환
+dot_pos = strfind(pi_str, '.') % 소수점 위치 찾기
+hundredth_digit = pi_str(dot_pos + 100) % 100번째 자리 추출
+disp(hundredth_digit) % 결과 출력
