@@ -1,0 +1,48 @@
+% x 범위 설정
+x = linspace(0,1,100)
+
+% 바깥(위) 곡선과 안쪽(아래) 곡선의 y값
+y_outer = x
+y_inner = x.^2
+
+% 각도를 0~2pi로 나눔 (회전용)
+theta = linspace(0,2*pi,100)
+
+% meshgrid로 회전 좌표 생성
+[X, T] = meshgrid(x, theta)
+
+% 바깥 표면 좌표
+Y_outer = X
+Z_outer = Y_outer .* cos(T)
+Y_outer = Y_outer .* sin(T)
+
+% 안쪽 표면 좌표
+X_inner = X
+Y_inner = X_inner.^2;
+Z_inner = Y_inner .* cos(T)
+Y_inner = Y_inner .* sin(T)
+
+% 3D 플롯
+figure
+hold on;
+surf(X, Y_outer, Z_outer, 'FaceAlpha', 0.7, 'EdgeColor', 'none', 'FaceColor', 'b') % 바깥
+surf(X, Y_inner, Z_inner, 'FaceAlpha', 0.7, 'EdgeColor', 'none', 'FaceColor', 'r') % 안쪽
+
+% 입체의 앞/뒤 면 (x=0, x=1에서 원판)
+for xi = [0 1]
+    y1 = xi
+    y2 = xi^2
+    th = linspace(0,2*pi,100)
+    % 바깥 원
+    fill3(xi*ones(size(th)), y1*cos(th), y1*sin(th), 'b', 'FaceAlpha', 0.5, 'EdgeColor', 'none')
+    % 안쪽 원 (구멍)
+    fill3(xi*ones(size(th)), y2*cos(th), y2*sin(th), 'w', 'FaceAlpha', 1, 'EdgeColor', 'none')
+end
+
+xlabel('x')
+ylabel('y')
+zlabel('z')
+axis equal
+view(35,30)
+title('Solid of Revolution: Region between y=x and y=x^2 about x-axis')
+hold off
